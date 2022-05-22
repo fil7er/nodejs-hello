@@ -91,3 +91,16 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: cosign sign ${{ steps.meta.outputs.tags }}@${{ steps.build-and-push.outputs.digest }}
+
+        # We need to login so we can later push the image without issues.
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_SECURE_TOKEN }}
+      # Builds devopsdockeruh/docker-hy.github.io
+      - name: Build and push in DockerHub
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: fil7er/nodejs-hello:latest
