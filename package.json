@@ -1,0 +1,18 @@
+{
+  "name": "nodejs-hello",
+  "version": "0.0.1",
+  "description": "nodejs-hello",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fil7er",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.5"
+  },
+  "license": "MIT",
+  "repository": {}
+}
